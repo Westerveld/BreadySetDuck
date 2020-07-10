@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CarArea : MonoBehaviour
 {
+    public Action<bool, int> areaPressed;
 
-    private void OnTriggerEnter(Collider other)
+    public int direction;
+
+    public void CallInvoke(bool player)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Duck"))
-        {
-            //check if its user controlled, if it is we need to wait.
-        }
+        Debug.Log(name + ", pressed");
+        areaPressed(player, direction);
     }
+
 }
