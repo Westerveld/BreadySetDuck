@@ -21,17 +21,16 @@ public class DuckFoot : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
 
+    Rect fullScreenRect = new Rect(0, 0, Screen.width, Screen.height);
+
     // Start is called before the first frame update
     void Start()
     {
         legRender = gameObject.GetComponent<LineRenderer>();
         thisLeg = gameObject.GetComponent<RectTransform>();
 
-        //PickLegOffScreen(legOffScreen);
-        //Debug.Log(legOffScreen);
-
         legRender.SetPosition(0, footMiddle);
-        legRender.SetPosition(1, legOffScreen);
+        legRender.SetPosition(1, PickLegOffScreen(legOffScreen));
         PickNewPosition();
     }
 
@@ -48,18 +47,14 @@ public class DuckFoot : MonoBehaviour
         }
     }
 
-    /*Vector3 PickLegOffScreen(Vector3 targetVector)
+    Vector3 PickLegOffScreen(Vector3 targetVector)
     {
         MathUtilities.Random(ref targetVector, offScreenMin, offScreenMax);
+        Debug.Log(targetVector);
 
-        while (fullScreenRect.Contains(targetVector))
-        {
-            MathUtilities.Random(ref targetVector, offScreenMin, offScreenMax);
-            Debug.Log(targetVector);
-        }
-
+        
         return targetVector;
-    }*/
+    }
 
     float RandomTime(float min, float max)
     {
@@ -76,7 +71,6 @@ public class DuckFoot : MonoBehaviour
         speed = Random.Range(2, 5);
 
         newPosition = new Vector3(newX, newY, 0);
-        Debug.Log(newPosition);
 
         float waitForNewPosition = RandomTime(3, 6);
 
