@@ -2499,8 +2499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3142c0809e54a741b47f722c63228a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMin: 5
-  speedMax: 10
+  speedMin: 0.01
+  speedMax: 0.05
 --- !u!95 &919132148008631547
 Animator:
   serializedVersion: 3
@@ -2514,7 +2514,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 4780bf2984b015545a0b6ac9c397dc17, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2530,7 +2530,7 @@ PrefabInstance:
     - target: {fileID: 1668792524392257028, guid: 245543830a47a304d9b36469fd6e973e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 1668792524392257028, guid: 245543830a47a304d9b36469fd6e973e,
         type: 3}
