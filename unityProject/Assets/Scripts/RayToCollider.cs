@@ -7,7 +7,7 @@ public class RayToCollider : MonoBehaviour
     public Camera cam;
     Vector3 mousePos,worldpos;
     RaycastHit hit;
-
+    Ray ray;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,8 @@ public class RayToCollider : MonoBehaviour
         {
 
             mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane);
-            worldpos = cam.ScreenToWorldPoint(mousePos);
-            if(Physics.Raycast(worldpos, cam.transform.forward, out hit, Mathf.Infinity))
+            ray = cam.ScreenPointToRay(mousePos);
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 Debug.DrawLine(worldpos, hit.transform.position);
                 if(hit.collider.gameObject.GetComponent<CarArea>())
