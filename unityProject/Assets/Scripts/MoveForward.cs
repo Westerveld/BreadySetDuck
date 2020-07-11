@@ -46,6 +46,5 @@ public class MoveForward : MonoBehaviour
 
         objectAnimator.SetTrigger("Dodge");
         objectAnimator.SetInteger("RandomAnim", Random.Range(0, 10));
-        
     }
 }
