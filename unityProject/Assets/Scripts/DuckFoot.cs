@@ -32,25 +32,17 @@ public class DuckFoot : MonoBehaviour
     public Camera cam;
     private Vector3 cameraBasedPosition;
 
+    private Vector2 viewportBounds;
 
     void Start()
     {
-        screenBounds = cam.WorldToScreenPoint(transform.position);
-        Debug.Log(screenBounds);
+        viewportBounds = cam.ViewportToWorldPoint(Vector2.one);
 
-        fullScreenRect = new Rect(0, 0, Screen.width, Screen.height);
-        Debug.Log(fullScreenRect);
+        fullScreenRect = new Rect(0, 0, viewportBounds.x, viewportBounds.y);
 
         legRender = gameObject.GetComponent<LineRenderer>();
 
         cam = GameObject.Find("Camera").GetComponent<Camera>();
-
-        offScreenMin = new Vector3(fullScreenRect.xMin, fullScreenRect.yMin, 0);
-        offScreenMax = new Vector3(fullScreenRect.xMax, fullScreenRect.yMax, 0);
-
-        offScreenMin = cam.WorldToScreenPoint(offScreenMin);
-
-        Debug.Log(offScreenMin);
 
         legRender.SetPosition(0, footMiddle);
         legRender.SetPosition(1, PickLegOffScreen(legOffScreen));
@@ -93,16 +85,20 @@ public class DuckFoot : MonoBehaviour
         float newX, newY;
         Vector3 cameraTest;
 
-        newX = Random.Range(this.transform.position.x - moveXRange, this.transform.position.y + moveXRange);
-        newY = Random.Range(this.transform.position.y - moveYRange, this.transform.position.y + moveYRange);
+        newX = Random.value;
+        newY = Random.value;
+
         speed = Random.Range(minSpeed, maxSpeed);
 
-        newPosition = new Vector3(newX, newY, 0);
-        cameraTest = cam.WorldToScreenPoint(newPosition);
+        newPosition = new Vector3(newX, newY, cam.nearClipPlane);
+
+        newPosition = cam.ViewportToWorldPoint(newPosition);
+
 
         float waitForNewPosition = RandomTime(3, 6);
 
         Invoke("PickNewPosition", waitForNewPosition);
+
     }
 
     private void OnMouseDown()
