@@ -114,7 +114,7 @@ public class CarScript : MonoBehaviour
         currSpeed = rigid.velocity.magnitude;
         oldRange = (maxSpeed - minSpeed);
         newRange = (maxAngle - minAngle);
-        float val = (((currGear < 0 ? 0 :currSpeed +1 - oldRange) * newRange) / oldRange) + maxAngle;
+        float val = (((currSpeed - oldRange) * newRange) / oldRange) + maxAngle;
 
         speedoShower.transform.localRotation = Quaternion.Lerp(speedoShower.transform.localRotation, Quaternion.Euler(new Vector3(0, 0, val)), Time.deltaTime);
     }
