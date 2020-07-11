@@ -11,8 +11,8 @@ public class DuckFoot : MonoBehaviour
     LineRenderer legRender;
     RectTransform thisLeg;
 
-    Vector3 offScreenMin = new Vector3(-1000, -1000, 0);
-    Vector3 offScreenMax = new Vector3(1000, 1000, 0);
+    Vector3 offScreenMin = new Vector3(-200, -200, 0);
+    Vector3 offScreenMax = new Vector3(200, 200, 0);
 
     Vector3 newPosition;
 
@@ -37,22 +37,24 @@ public class DuckFoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        legRender.SetPosition(0, transform.position);
+        legRender.SetPosition(1, legOffScreen);
+
         if (!isPlayerHoldingFoot)
         {
             transform.position = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
         }
         else
         {
-
+            newPosition = transform.position;
         }
+        Debug.Log(newPosition);
     }
 
     Vector3 PickLegOffScreen(Vector3 targetVector)
     {
         MathUtilities.Random(ref targetVector, offScreenMin, offScreenMax);
-        Debug.Log(targetVector);
-
-        
+        legOffScreen = targetVector;
         return targetVector;
     }
 
@@ -86,6 +88,7 @@ public class DuckFoot : MonoBehaviour
 
         isPlayerHoldingFoot = true;
         Debug.Log("FootClicked");
+        CancelInvoke("PickNewPosition");
     }
 
     private void OnMouseDrag()
@@ -94,12 +97,14 @@ public class DuckFoot : MonoBehaviour
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
-
+        legRender.SetPosition(1, legOffScreen);
+        
     }
 
     private void OnMouseUp()
     {
         isPlayerHoldingFoot = false;
+        PickNewPosition();
         Debug.Log("FootLetGo");
     }
 }
