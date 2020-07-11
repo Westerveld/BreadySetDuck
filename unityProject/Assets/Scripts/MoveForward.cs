@@ -5,12 +5,15 @@ using UnityEngine;
 public class MoveForward : MonoBehaviour
 {
 
-    public float speed;
+    public float speedMin;
+    public float speedMax;
+
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = Random.Range(speedMin, speedMax);    
     }
 
     // Update is called once per frame
