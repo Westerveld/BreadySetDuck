@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class CarScript : MonoBehaviour
 {
     public CarArea wheelLeft, wheelRight, gearUp, gearDown, lighter, horn, map;
@@ -15,12 +14,18 @@ public class CarScript : MonoBehaviour
 
     public Vector3 movement;
     Quaternion targetRotation;
+    public Transform massCenter;
+
+    public WheelCollider FR, FL, BR, BL;
+
+    public float speedToPerGear;
 
     private void Awake()
     {
         targetRotation = transform.rotation;
         rigid = GetComponent<Rigidbody>();
-        currSpeedTarget = currGear * 5;
+        currSpeedTarget = currGear * speedToPerGear;
+        //rigid.centerOfMass = massCenter.position;
     }
     // Start is called before the first frame update
     void OnEnable()
@@ -42,7 +47,6 @@ public class CarScript : MonoBehaviour
     void WheelMove(bool player, int dir)
     {
         moveAmount = dir * turning;
-        targetRotation *= Quaternion.Euler(0, moveAmount, 0);
     }
 
     void GearMove(bool player, int dir)
@@ -60,7 +64,7 @@ public class CarScript : MonoBehaviour
             if(currGear < 6)
                 currGear++;
         }
-        currSpeedTarget = currGear * 5;
+        currSpeedTarget = currGear * speedToPerGear;
     }
 
     // Update is called once per frame
@@ -68,7 +72,15 @@ public class CarScript : MonoBehaviour
     {
         speed = Mathf.Lerp(speed, currSpeedTarget, Time.deltaTime * acceleration);
         movement = transform.forward * constantForwardForce;
-        rigid.AddForce(movement * speed);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+        BL.motorTorque = speed;
+        BR.motorTorque = speed;
+        FR.steerAngle = moveAmount;
+        FL.steerAngle = moveAmount;
+
+    }
+
+    private void LateUpdate()
+    {
+        moveAmount = Mathf.Lerp(moveAmount, 0, turnSpeed);
     }
 }
