@@ -194,7 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legOffScreen: {x: 0, y: 0, z: 0}
-  speed: 0
+  minSpeed: 3
+  maxSpeed: 5
+  cam: {fileID: 0}
 --- !u!61 &2118306612259986636
 BoxCollider2D:
   m_ObjectHideFlags: 0
