@@ -4,41 +4,51 @@ using UnityEngine;
 
 public class DuckFoot : MonoBehaviour
 {
-
-    private Rect fullScreenRect = new Rect(0, 0, Screen.width, Screen.height);
-
     Vector3 footMiddle = new Vector3(0, 0, 0);
     public Vector3 legOffScreen;
     public float speed;
 
     LineRenderer legRender;
+    RectTransform thisLeg;
 
     Vector3 offScreenMin = new Vector3(-1000, -1000, 0);
     Vector3 offScreenMax = new Vector3(1000, 1000, 0);
 
     Vector3 newPosition;
 
+    bool isPlayerHoldingFoot;
+
+    private Vector3 screenPoint;
+    private Vector3 offset;
+
     // Start is called before the first frame update
     void Start()
     {
         legRender = gameObject.GetComponent<LineRenderer>();
+        thisLeg = gameObject.GetComponent<RectTransform>();
 
-        PickLegOffScreen(legOffScreen);
+        //PickLegOffScreen(legOffScreen);
         //Debug.Log(legOffScreen);
 
         legRender.SetPosition(0, footMiddle);
         legRender.SetPosition(1, legOffScreen);
-        Debug.Log(fullScreenRect);
         PickNewPosition();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!isPlayerHoldingFoot)
+        {
+            transform.position = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
+        }
+        else
+        {
+
+        }
     }
 
-    Vector3 PickLegOffScreen(Vector3 targetVector)
+    /*Vector3 PickLegOffScreen(Vector3 targetVector)
     {
         MathUtilities.Random(ref targetVector, offScreenMin, offScreenMax);
 
@@ -49,7 +59,7 @@ public class DuckFoot : MonoBehaviour
         }
 
         return targetVector;
-    }
+    }*/
 
     float RandomTime(float min, float max)
     {
@@ -60,16 +70,42 @@ public class DuckFoot : MonoBehaviour
 
     void PickNewPosition()
     {
-        int newX, newY;
-        newX = Random.Range(-1000, 1000);
-        newY = Random.Range(-1000, 1000);
-        speed = Random.Range(3, 10);
+        float newX, newY;
+        newX = Random.Range(this.transform.position.x - 10, this.transform.position.y + 10);
+        newY = Random.Range(this.transform.position.x - 10, this.transform.position.y + 10);
+        speed = Random.Range(2, 5);
 
         newPosition = new Vector3(newX, newY, 0);
+        Debug.Log(newPosition);
 
         float waitForNewPosition = RandomTime(3, 6);
 
-        transform.Translate(newPosition * speed * Time.deltaTime);
+
         Invoke("PickNewPosition", waitForNewPosition);
+    }
+
+    private void OnMouseDown()
+    {
+        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+        isPlayerHoldingFoot = true;
+        Debug.Log("FootClicked");
+    }
+
+    private void OnMouseDrag()
+    {
+        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+
+        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+        transform.position = curPosition;
+
+    }
+
+    private void OnMouseUp()
+    {
+        isPlayerHoldingFoot = false;
+        Debug.Log("FootLetGo");
     }
 }
