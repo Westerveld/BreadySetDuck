@@ -9,24 +9,43 @@ public class MoveForward : MonoBehaviour
     public float speedMax;
 
     private float speed;
+    private Collider objectCollider;
+
+    bool dodged = false;
+
+    Animator objectAnimator;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(speedMin, speedMax);    
+        speed = Random.Range(speedMin, speedMax);
+
+        objectCollider = GetComponent<BoxCollider>();
+        objectAnimator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!dodged)
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        Debug.Log(speed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Dodge();
+        }
     }
 
 
     void Dodge()
     {
+        objectCollider.enabled = false;
+        dodged = true;
 
-
+        objectAnimator.SetTrigger("Dodge");
+        objectAnimator.SetInteger("RandomAnim", Random.Range(0, 10));
+        
     }
 }
