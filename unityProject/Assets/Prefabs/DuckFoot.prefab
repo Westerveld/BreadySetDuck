@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 6302677b29a6b0746880a931ae73a94b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,19 +122,19 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 101
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 100, y: 100, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 2
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.773407
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -174,8 +174,8 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
+    numCapVertices: 3
+    alignment: 1
     textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
@@ -196,7 +196,12 @@ MonoBehaviour:
   legOffScreen: {x: 0, y: 0, z: 0}
   minSpeed: 3
   maxSpeed: 5
+  moveYRange: 0
+  moveXRange: 0
   cam: {fileID: 0}
+  footOffset: {x: 0, y: 0, z: 0.5}
+  fVector: {x: 0, y: 0, z: 0}
+  angleSmoothing: 2
 --- !u!61 &2118306612259986636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,16 +215,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.012210071, y: 0.3976975}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    pivot: {x: 0.5122101, y: 0.1023025}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

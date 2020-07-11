@@ -30,6 +30,7 @@ public class CarScript : MonoBehaviour
     float maxSpeed = 12;
     float minSpeed = -1;
     float newRange;
+
     private void Awake()
     {
         targetRotation = transform.rotation;
@@ -72,7 +73,7 @@ public class CarScript : MonoBehaviour
         }
         else if(dir == 1)
         {
-            if(currGear < 6)
+            if(currGear < maxGears)
                 currGear++;
         }
         currSpeedTarget = currGear * speedPerGear;

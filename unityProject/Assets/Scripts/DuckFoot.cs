@@ -33,6 +33,13 @@ public class DuckFoot : MonoBehaviour
     private Vector3 cameraBasedPosition;
 
     private Vector2 viewportBounds;
+    public Vector3 footOffset;
+
+    public Vector3 fVector;
+    float angle;
+    public float angleSmoothing;
+
+    
 
     void Start()
     {
@@ -42,11 +49,16 @@ public class DuckFoot : MonoBehaviour
 
         legRender = gameObject.GetComponent<LineRenderer>();
 
-        cam = GameObject.Find("Camera").GetComponent<Camera>();
+        //cam = GameObject.Find("Camera").GetComponent<Camera>();
 
         legRender.SetPosition(0, footMiddle);
         legRender.SetPosition(1, PickLegOffScreen(legOffScreen));
         PickNewPosition();
+
+        fVector = legRender.GetPosition(0) - legRender.GetPosition(1);
+        angle = Mathf.Atan2(fVector.y, fVector.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * angleSmoothing);
+        legRender.material.mainTextureScale = new Vector2(legRender.material.mainTextureScale.x, Random.value);
     }
 
     void Update()
@@ -66,10 +78,17 @@ public class DuckFoot : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        fVector = legRender.GetPosition(0) - legRender.GetPosition(1);
+        angle = Mathf.Atan2(fVector.y, fVector.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle - 90, Vector3.forward), Time.deltaTime * angleSmoothing);
+    }
+
     Vector3 PickLegOffScreen(Vector3 targetVector)
     {
         MathUtilities.Random(ref targetVector, offScreenMin, offScreenMax);
-        legOffScreen = targetVector;
+        legOffScreen = cam.ViewportToWorldPoint(new Vector3(targetVector.x, targetVector.y, cam.nearClipPlane));
         return targetVector;
     }
 
@@ -90,7 +109,7 @@ public class DuckFoot : MonoBehaviour
 
         speed = Random.Range(minSpeed, maxSpeed);
 
-        newPosition = new Vector3(newX, newY, cam.nearClipPlane);
+        newPosition = new Vector3(newX, newY, cam.nearClipPlane + footOffset.z);
 
         newPosition = cam.ViewportToWorldPoint(newPosition);
 
