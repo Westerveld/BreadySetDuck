@@ -372,12 +372,12 @@ PrefabInstance:
     - target: {fileID: 2118306612259986632, guid: a0149166fd0b6424a89301de0998f1fd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2118306612259986632, guid: a0149166fd0b6424a89301de0998f1fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2118306612259986632, guid: a0149166fd0b6424a89301de0998f1fd,
         type: 3}
@@ -424,10 +424,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2118306612259986634, guid: a0149166fd0b6424a89301de0998f1fd,
+    - target: {fileID: 2118306612259986637, guid: a0149166fd0b6424a89301de0998f1fd,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1037027351}
+    - target: {fileID: 2118306612259986637, guid: a0149166fd0b6424a89301de0998f1fd,
+        type: 3}
+      propertyPath: moveYRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118306612259986637, guid: a0149166fd0b6424a89301de0998f1fd,
+        type: 3}
+      propertyPath: moveXRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118306612259986637, guid: a0149166fd0b6424a89301de0998f1fd,
+        type: 3}
+      propertyPath: fullScreen
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2118306612259986639, guid: a0149166fd0b6424a89301de0998f1fd,
         type: 3}
