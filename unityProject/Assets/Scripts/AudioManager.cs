@@ -47,8 +47,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayHorn()
     {
-        float pitch = Random.value;
-        sfxSource.pitch = pitch;
+        /*float pitch = Random.value;
+        sfxSource.pitch = pitch;*/
         sfxSource.PlayOneShot(carHorn);
     }
 }

@@ -186,5 +186,6 @@ public class DuckFoot : MonoBehaviour
     public void Hjonk()
     {
         AudioManager._instance.PlayHorn();
+        Debug.Log("Hjonked");
     }
 }
