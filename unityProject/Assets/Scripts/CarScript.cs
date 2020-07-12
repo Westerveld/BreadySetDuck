@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarScript : MonoBehaviour
 {
@@ -40,6 +41,10 @@ public class CarScript : MonoBehaviour
     int colorToSubtract;
 
     public ParticleSystem[] smokeParticle;
+
+    public float fadeDuration = 1f;
+    public CanvasGroup gameOverCanvas;
+    float timer;
 
     private void Awake()
     {
@@ -168,5 +173,12 @@ public class CarScript : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("GameOver");
+        timer += Time.deltaTime;
+        gameOverCanvas.alpha = timer / fadeDuration;
+
+        if(timer > fadeDuration + 2)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
