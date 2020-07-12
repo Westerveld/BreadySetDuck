@@ -128,6 +128,7 @@ public class CarScript : MonoBehaviour
         }
 
         UpdateSpeedo();
+        CheckUpVector();
     }
 
     void UpdateSpeedo()
@@ -138,6 +139,14 @@ public class CarScript : MonoBehaviour
         float val = (((currSpeed - oldRange) * newRange) / oldRange) + maxAngle;
 
         speedoShower.transform.localRotation = Quaternion.Lerp(speedoShower.transform.localRotation, Quaternion.Euler(new Vector3(0, 0, val)), Time.deltaTime);
+    }
+
+    void CheckUpVector()
+    {
+        if(transform.up.y < 0)
+        {
+            Debug.Log("We are upside down");
+        }
     }
 
     public void OofOwwieOuchie()
