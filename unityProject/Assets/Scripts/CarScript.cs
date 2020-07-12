@@ -190,7 +190,7 @@ public class CarScript : MonoBehaviour
         if (currentBrebsCollected > PlayerPrefs.GetInt("Breads"))
 
         {
-            PlayerPrefs.SetInt("Breads", highBrebsCollected);
+            PlayerPrefs.SetInt("Breads", currentBrebsCollected);
             PlayerPrefs.Save();
         }
 
