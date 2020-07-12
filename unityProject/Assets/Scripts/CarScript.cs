@@ -39,7 +39,7 @@ public class CarScript : MonoBehaviour
     int currentColor;
     int colorToSubtract;
 
-    public ParticleSystem smokeParticle;
+    public ParticleSystem[] smokeParticle;
 
     private void Awake()
     {
@@ -137,9 +137,10 @@ public class CarScript : MonoBehaviour
 
     public void OofOwwieOuchie()
     {
-        if(!smokeParticle.emission.enabled)
+        if(!smokeParticle[0].emission.enabled)
         {
-            smokeParticle.Play();
+            smokeParticle[0].Play();
+            smokeParticle[1].Play();
         }
 
         currentHealth--;
@@ -150,7 +151,10 @@ public class CarScript : MonoBehaviour
             currentColor = 0;
         }
 
-        smokeParticle.startColor = new Color(currentColor, currentColor, currentColor, 1);
+        foreach (ParticleSystem system in smokeParticle)
+        {
+            system.startColor = new Color(currentColor, currentColor, currentColor, 1);
+        }
 
         if (currentHealth <= 0)
         {
