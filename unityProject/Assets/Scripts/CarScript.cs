@@ -33,7 +33,7 @@ public class CarScript : MonoBehaviour
     public float speedTarget, speedIncrement, maxReverse, maxForward;
 
     public int maxHealth;
-    public int currentHealth;
+    int currentHealth;
 
     int colorvalue;
     int currentColor;
@@ -137,7 +137,10 @@ public class CarScript : MonoBehaviour
 
     public void OofOwwieOuchie()
     {
-        if(!smokeParticle[0].emission.enabled)
+        Debug.Log("Take Damage");
+
+
+        if (!smokeParticle[0].isPlaying)
         {
             smokeParticle[0].Play();
             smokeParticle[1].Play();
@@ -164,6 +167,6 @@ public class CarScript : MonoBehaviour
 
     public void GameOver()
     {
-
+        Debug.Log("GameOver");
     }
 }
