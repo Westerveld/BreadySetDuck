@@ -363,7 +363,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668792524392257028}
-  - component: {fileID: 8986292882690491596}
   - component: {fileID: 2980504212815184949}
   - component: {fileID: 2691091676596735304}
   - component: {fileID: 919132148008631547}
@@ -383,7 +382,7 @@ Transform:
   m_GameObject: {fileID: 2045598885019782334}
   m_LocalRotation: {x: 0, y: -0.13052624, z: 0, w: 0.9914449}
   m_LocalPosition: {x: -5.3, y: -7.85, z: -51.515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2157, y: 2.2157, z: 2.2157}
   m_Children:
   - {fileID: 232943772884668701}
   - {fileID: 3117248927100515631}
@@ -393,22 +392,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -15.000001, z: 0}
---- !u!54 &8986292882690491596
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045598885019782334}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &2980504212815184949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -429,7 +412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045598885019782334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3142c0809e54a741b47f722c63228a0, type: 3}
   m_Name: 
