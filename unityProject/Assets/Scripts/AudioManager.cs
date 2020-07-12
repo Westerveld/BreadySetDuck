@@ -5,8 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager _instance;
-    public AudioClip duckFeet;
-    public AudioClip duckFootSlap;
+    public AudioClip[] duckFootSlap;
 
     public AudioClip carHorn;
 
@@ -38,16 +37,10 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(quack[Random.Range(0, quack.Length)]);
     }
 
-    public void PlayFeet()
-    {
-        sfxSource.pitch = 1f;
-        sfxSource.PlayOneShot(duckFeet);
-    }
-
     public void PlayFoot()
     {
         sfxSource.pitch = 1f;
-        sfxSource.PlayOneShot(duckFootSlap);
+        sfxSource.PlayOneShot(duckFootSlap[Random.Range(0,duckFootSlap.Length)]);
     }
 
     public void PlayHorn()
