@@ -49,6 +49,7 @@ public class CarScript : MonoBehaviour
 
     int currentBrebsCollected;
     public TMP_Text brebText;
+    int highBrebsCollected;
 
     public Animator breaven;
 
@@ -188,7 +189,13 @@ public class CarScript : MonoBehaviour
 
     public void GameOver()
     {
-        PlayerPrefs.SetInt("Breads", currentBrebsCollected);
+        if (currentBrebsCollected > highBrebsCollected)
+            highBrebsCollected = currentBrebsCollected;
+        
+        PlayerPrefs.SetInt("Breads", highBrebsCollected);
+        PlayerPrefs.Save();
+
+        
         SceneManager.LoadScene(2);
     }
 
