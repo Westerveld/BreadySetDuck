@@ -15,6 +15,7 @@ public class CarArea : MonoBehaviour
     {
         Debug.Log(name + ", pressed");
         areaPressed(player, direction);
+        AudioManager._instance.PlayFoot();
         if (anim != null)
             anim.SetTrigger(trigger);
     }

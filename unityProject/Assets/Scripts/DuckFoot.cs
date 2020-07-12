@@ -9,6 +9,7 @@ public class DuckFoot : MonoBehaviour
     private float speed;
 
     LineRenderer legRender;
+    Animator duckFootAnimator;
 
     Vector3 offScreenMin;
     Vector3 offScreenMax;
@@ -50,8 +51,7 @@ public class DuckFoot : MonoBehaviour
         fullScreenRect = new Rect(0, 0, viewportBounds.x, viewportBounds.y);
 
         legRender = gameObject.GetComponent<LineRenderer>();
-
-        //cam = GameObject.Find("Camera").GetComponent<Camera>();
+        duckFootAnimator = GetComponent<Animator>();
 
         legRender.SetPosition(0, footMiddle);
         legRender.SetPosition(1, PickLegOffScreen(legOffScreen));
@@ -125,8 +125,8 @@ public class DuckFoot : MonoBehaviour
         {
             waitForNewPosition *= .5f;
         }
+        AudioManager._instance.PlaySingleQuack();
 
-        
         Invoke("PickNewPosition", waitForNewPosition);
 
     }
@@ -140,6 +140,7 @@ public class DuckFoot : MonoBehaviour
         isPlayerHoldingFoot = true;
         Debug.Log("FootClicked");
         CancelInvoke("PickNewPosition");
+        AudioManager._instance.PlaySingleQuack();
     }
 
     private void OnMouseDrag()
@@ -172,11 +173,13 @@ public class DuckFoot : MonoBehaviour
     public void GotBurnt()
     {
         isBurnt = true;
+        duckFootAnimator.SetTrigger("Burnt");
         Invoke("StopBurn", coolDownTime);
     }
 
     void StopBurn()
     {
         isBurnt = false;
+        duckFootAnimator.SetTrigger("Unburnt");
     }
 }
