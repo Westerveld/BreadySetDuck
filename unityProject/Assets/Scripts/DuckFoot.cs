@@ -182,4 +182,9 @@ public class DuckFoot : MonoBehaviour
         isBurnt = false;
         duckFootAnimator.SetTrigger("Unburnt");
     }
+
+    public void Hjonk()
+    {
+        AudioManager._instance.PlayHorn();
+    }
 }
