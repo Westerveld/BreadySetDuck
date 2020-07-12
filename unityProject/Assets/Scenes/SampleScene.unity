@@ -18948,6 +18948,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1693607744, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
+      propertyPath: m_Size.z
+      value: 1.4657431
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693607744, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
+      propertyPath: m_Center.x
+      value: -0.016616305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693607744, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
+      propertyPath: m_Center.y
+      value: 0.19939642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693607744, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
+      propertyPath: m_Center.z
+      value: 1.7964016
+      objectReference: {fileID: 0}
     - target: {fileID: 34158395601840529, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
       propertyPath: prewarm
@@ -19003,6 +19019,11 @@ PrefabInstance:
       propertyPath: m_ForwardFriction.m_Stiffness
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7167471997789412802, guid: d85a1271a5ebec8418011c4af0666419,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7167471997998058157, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
       propertyPath: m_Mass
@@ -19012,6 +19033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ForwardFriction.m_Stiffness
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167471997998058157, guid: d85a1271a5ebec8418011c4af0666419,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7167471998750712267, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
@@ -19023,6 +19049,11 @@ PrefabInstance:
       propertyPath: m_ForwardFriction.m_Stiffness
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7167471998750712267, guid: d85a1271a5ebec8418011c4af0666419,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7167471999319706541, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
       propertyPath: m_Mass
@@ -19032,6 +19063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ForwardFriction.m_Stiffness
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167471999319706541, guid: d85a1271a5ebec8418011c4af0666419,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7167471999416953612, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
@@ -19161,7 +19197,7 @@ PrefabInstance:
     - target: {fileID: 7167471999416953615, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7570628895344433455, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
