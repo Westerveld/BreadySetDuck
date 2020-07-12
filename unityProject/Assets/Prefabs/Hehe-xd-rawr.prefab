@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614505764}
   - component: {fileID: 614505765}
+  - component: {fileID: 3687158052018553762}
   m_Layer: 0
   m_Name: OuchieZone
   m_TagString: Untagged
@@ -44,6 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3687158052018553762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614505763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec892cd0e95c964daba3ee367d7f128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1655040276876646920
 GameObject:
   m_ObjectHideFlags: 0
