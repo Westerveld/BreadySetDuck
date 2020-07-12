@@ -190,6 +190,7 @@ public class CarScript : MonoBehaviour
         timer += Time.deltaTime;
         gameOverCanvas.alpha = timer / fadeDuration;
 
+        PlayerPrefs.SetInt("Breads", currentBrebsCollected);
         if(timer > fadeDuration + 2)
         {
             SceneManager.LoadScene(0);
