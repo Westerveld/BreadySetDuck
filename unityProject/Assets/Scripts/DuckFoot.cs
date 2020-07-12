@@ -41,7 +41,7 @@ public class DuckFoot : MonoBehaviour
 
     public bool canInteract = true;
     public float coolDownTime = 1.25f;
-    
+    bool isBurnt;
 
     void Start()
     {
@@ -104,12 +104,15 @@ public class DuckFoot : MonoBehaviour
     void PickNewPosition()
     {
         float newX, newY;
-        Vector3 cameraTest;
 
         newX = Random.value;
         newY = Random.value;
 
         speed = Random.Range(minSpeed, maxSpeed);
+        if(isBurnt)
+        {
+            speed *= 2;
+        }
 
         newPosition = new Vector3(newX, newY, cam.nearClipPlane + footOffset.z);
 
@@ -118,6 +121,12 @@ public class DuckFoot : MonoBehaviour
 
         float waitForNewPosition = RandomTime(3, 6);
 
+        if(isBurnt)
+        {
+            waitForNewPosition *= .5f;
+        }
+
+        
         Invoke("PickNewPosition", waitForNewPosition);
 
     }
@@ -158,5 +167,16 @@ public class DuckFoot : MonoBehaviour
     void AllowInteract()
     {
         canInteract = true;
+    }
+
+    public void GotBurnt()
+    {
+        isBurnt = true;
+        Invoke("StopBurn", coolDownTime);
+    }
+
+    void StopBurn()
+    {
+        isBurnt = false;
     }
 }
