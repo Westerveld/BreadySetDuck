@@ -32,12 +32,25 @@ public class CarScript : MonoBehaviour
 
     public float speedTarget, speedIncrement, maxReverse, maxForward;
 
+    public int maxHealth;
+    public int currentHealth;
+
+    int colorvalue;
+    int currentColor;
+    int colorToSubtract;
+
+    public ParticleSystem smokeParticle;
+
     private void Awake()
     {
         targetRotation = transform.rotation;
         rigid = GetComponent<Rigidbody>();
         currSpeedTarget = speedTarget;
         //rigid.centerOfMass = massCenter.position;
+        currentHealth = maxHealth;
+        colorvalue = 255;
+        currentColor = colorvalue;
+        colorToSubtract = colorvalue / maxHealth;
     }
 
     // Start is called before the first frame update
@@ -92,7 +105,6 @@ public class CarScript : MonoBehaviour
         BR.motorTorque = speed;
         FR.steerAngle = currTurn;
         FL.steerAngle = currTurn;
-
     }
 
     private void LateUpdate()
@@ -115,12 +127,39 @@ public class CarScript : MonoBehaviour
 
     void UpdateSpeedo()
     {
-
         currSpeed = rigid.velocity.magnitude;
         oldRange = (maxSpeed - minSpeed);
         newRange = (maxAngle - minAngle);
         float val = (((currSpeed - oldRange) * newRange) / oldRange) + maxAngle;
 
         speedoShower.transform.localRotation = Quaternion.Lerp(speedoShower.transform.localRotation, Quaternion.Euler(new Vector3(0, 0, val)), Time.deltaTime);
+    }
+
+    public void OofOwwieOuchie()
+    {
+        if(!smokeParticle.emission.enabled)
+        {
+            smokeParticle.Play();
+        }
+
+        currentHealth--;
+
+        currentColor = currentColor - colorToSubtract;
+        if(currentColor <= 0)
+        {
+            currentColor = 0;
+        }
+
+        smokeParticle.startColor = new Color(currentColor, currentColor, currentColor, 1);
+
+        if (currentHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+
     }
 }
