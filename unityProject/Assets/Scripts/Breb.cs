@@ -16,7 +16,7 @@ public class Breb : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "CarCollectionZone")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
             Debug.Log("Breb collected");
             Destroy(this.gameObject);
