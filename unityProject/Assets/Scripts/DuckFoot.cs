@@ -120,12 +120,12 @@ public class DuckFoot : MonoBehaviour
 
 
         float waitForNewPosition = RandomTime(3, 6);
+        AudioManager._instance.PlayFoot();
 
-        if(isBurnt)
+        if (isBurnt)
         {
             waitForNewPosition *= .1f;
         }
-        AudioManager._instance.PlaySingleQuack();
         CancelInvoke("PickNewPosition");
         Invoke("PickNewPosition", waitForNewPosition);
 
@@ -173,6 +173,7 @@ public class DuckFoot : MonoBehaviour
     public void Interacted()
     {
         canInteract = false;
+        AudioManager._instance.PlayFoot();
         Invoke("AllowInteract", coolDownTime);
     }
 
