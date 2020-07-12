@@ -138,7 +138,9 @@ public class DuckFoot : MonoBehaviour
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 
         isPlayerHoldingFoot = true;
-        StopBurn();
+
+        if(isBurnt)
+            StopBurn();
         Debug.Log("FootClicked");
         CancelInvoke("PickNewPosition");
         AudioManager._instance.PlaySingleQuack();

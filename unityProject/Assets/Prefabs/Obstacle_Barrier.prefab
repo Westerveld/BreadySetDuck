@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1997537340821144503}
   - component: {fileID: 3547487210241297085}
   - component: {fileID: 760005701355139403}
+  - component: {fileID: 4530425570190431068}
   m_Layer: 10
   m_Name: Obstacle_Barrier
   m_TagString: Untagged
@@ -110,3 +111,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &4530425570190431068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51881353797870178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774cd9a3a2a61d54baf7a95b6bf4113e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenDamaging: 3.5
+  doesDamage: 1
