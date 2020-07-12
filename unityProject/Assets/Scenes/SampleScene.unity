@@ -2515,6 +2515,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a524e3c1356e4e84fb1d47b3f781de14, type: 3}
   - {fileID: 8300000, guid: 0e1d62fba8402fb47be3b5fcd4462b31, type: 3}
   burnClip: {fileID: 8300000, guid: ae55c62434107054d8c697a99cff1855, type: 3}
+  eatBreb:
+  - {fileID: 8300000, guid: 2b872889ae016b14f8b89fa36893db86, type: 3}
+  - {fileID: 8300000, guid: 4779172cfcdbb2244a8a72ff79fb6708, type: 3}
+  - {fileID: 8300000, guid: 23d67545a88d9b142bbe654c17476194, type: 3}
   sfxSource: {fileID: 102069340}
 --- !u!82 &102069340
 AudioSource:
