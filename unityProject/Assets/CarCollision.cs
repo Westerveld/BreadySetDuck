@@ -11,6 +11,7 @@ public class CarCollision : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
         {
             Debug.Log("collided with obstacles");
+            other.GetComponent<Obstacle>().Hit();
             carParent.GetComponent<CarScript>().OofOwwieOuchie();
         }
     }
