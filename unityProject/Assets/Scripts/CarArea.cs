@@ -13,7 +13,6 @@ public class CarArea : MonoBehaviour
 
     public void CallInvoke(bool player)
     {
-        Debug.Log(name + ", pressed");
         areaPressed(player, direction);
         AudioManager._instance.PlayFoot();
         if (anim != null)

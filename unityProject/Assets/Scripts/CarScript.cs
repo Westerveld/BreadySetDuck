@@ -50,6 +50,8 @@ public class CarScript : MonoBehaviour
     int currentBrebsCollected;
     public TMP_Text brebText;
 
+    public Animator breaven;
+
     private void Awake()
     {
         targetRotation = transform.rotation;
@@ -150,15 +152,15 @@ public class CarScript : MonoBehaviour
     {
         if(transform.up.y < 0)
         {
-            Debug.Log("We are upside down");
+            if (rigid.velocity.magnitude < 0.5f)
+            {
+                GameOver();
+            }
         }
     }
 
     public void OofOwwieOuchie()
     {
-        Debug.Log("Take Damage");
-
-
         if (!smokeParticle[0].isPlaying)
         {
             smokeParticle[0].Play();
@@ -194,5 +196,22 @@ public class CarScript : MonoBehaviour
     {
         currentBrebsCollected++;
         brebText.text = currentBrebsCollected.ToString();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Breaven"))
+        {
+            //Trigger breavenText
+            breaven.SetTrigger("Show");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Breaven"))
+        {
+
+            breaven.SetTrigger("Hide");
+        }
     }
 }

@@ -141,7 +141,6 @@ public class DuckFoot : MonoBehaviour
 
         if(isBurnt)
             StopBurn();
-        Debug.Log("FootClicked");
         CancelInvoke("PickNewPosition");
         AudioManager._instance.PlaySingleQuack();
     }
@@ -162,7 +161,6 @@ public class DuckFoot : MonoBehaviour
     {
         isPlayerHoldingFoot = false;
         PickNewPosition();
-        Debug.Log("FootLetGo");
     }
 
     public void FootUsed()
@@ -200,7 +198,13 @@ public class DuckFoot : MonoBehaviour
 
     public void Hjonk()
     {
-        AudioManager._instance.PlayHorn();
-        Debug.Log("Hjonked");
+        if (Random.value > 0.5f)
+        {
+            AudioManager._instance.PlayHorn();
+        }
+        else
+        {
+            AudioManager._instance.PlaySingleQuack();
+        }
     }
 }

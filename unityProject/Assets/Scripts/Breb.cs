@@ -19,7 +19,6 @@ public class Breb : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
             other.gameObject.GetComponentInParent<CarScript>().GetBreb();
-            Debug.Log("Breb collected");
             Destroy(this.gameObject);
         }
     }

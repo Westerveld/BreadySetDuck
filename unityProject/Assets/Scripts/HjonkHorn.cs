@@ -6,7 +6,6 @@ public class HjonkHorn : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered");
         if (other.gameObject.layer == LayerMask.NameToLayer("Foot"))
         {
             other.GetComponent<DuckFoot>().Hjonk();
