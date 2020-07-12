@@ -1,0 +1,19 @@
+Font: Komika Axis  Style: Regular
+Point Size: 128   SP/PD Ratio: 3.9%
+
+Characters included: 89/96
+Missing characters: 0
+Excluded characters: 7
+
+Characters missing from font file:
+----------------------------------------
+
+Characters excluded from packing:
+----------------------------------------
+ID: 54	Hex: 36	Char [6]
+ID: 57	Hex: 39	Char [9]
+ID: 70	Hex: 46	Char [F]
+ID: 73	Hex: 49	Char [I]
+ID: 101	Hex: 65	Char [e]
+ID: 102	Hex: 66	Char [f]
+ID: 105	Hex: 69	Char [i]
