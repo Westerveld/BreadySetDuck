@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 8285189957052896322}
   - component: {fileID: 4429841419412240376}
   - component: {fileID: 4792931864672726381}
-  - component: {fileID: -6552361178763056423}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,17 +110,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &-6552361178763056423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7636438307176068503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774cd9a3a2a61d54baf7a95b6bf4113e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenDamaging: 3.5
-  doesDamage: 1

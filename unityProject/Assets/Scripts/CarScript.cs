@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CarScript : MonoBehaviour
 {
@@ -46,6 +47,9 @@ public class CarScript : MonoBehaviour
     public CanvasGroup gameOverCanvas;
     float timer;
 
+    int currentBrebsCollected;
+    public TMP_Text brebText;
+
     private void Awake()
     {
         targetRotation = transform.rotation;
@@ -56,6 +60,7 @@ public class CarScript : MonoBehaviour
         colorvalue = 255;
         currentColor = colorvalue;
         colorToSubtract = colorvalue / maxHealth;
+        brebText.text = "0";
     }
 
     // Start is called before the first frame update
@@ -181,13 +186,13 @@ public class CarScript : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("GameOver");
-        timer += Time.deltaTime;
-        gameOverCanvas.alpha = timer / fadeDuration;
+        PlayerPrefs.SetInt("Breads", currentBrebsCollected);
+        SceneManager.LoadScene(2);
+    }
 
-        if(timer > fadeDuration + 2)
-        {
-            SceneManager.LoadScene(0);
-        }
+    public void GetBreb()
+    {
+        currentBrebsCollected++;
+        brebText.text = currentBrebsCollected.ToString();
     }
 }
