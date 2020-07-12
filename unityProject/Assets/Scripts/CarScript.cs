@@ -9,7 +9,6 @@ public class CarScript : MonoBehaviour
     public float constantForwardForce, turning, turnSpeed, acceleration, turnTime;
     float targetTurn, currTurn;
     Rigidbody rigid;
-    public int currGear = 1, maxGears= 6;
     float speed, currSpeed, currSpeedTarget;
 
     public Vector3 movement;
@@ -31,13 +30,16 @@ public class CarScript : MonoBehaviour
     float minSpeed = -1;
     float newRange;
 
+    public float speedTarget, speedIncrement, maxReverse, maxForward;
+
     private void Awake()
     {
         targetRotation = transform.rotation;
         rigid = GetComponent<Rigidbody>();
-        currSpeedTarget = currGear * speedPerGear;
+        currSpeedTarget = speedTarget;
         //rigid.centerOfMass = massCenter.position;
     }
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -57,26 +59,27 @@ public class CarScript : MonoBehaviour
 
     void WheelMove(bool player, int dir)
     {
+        if (player)
+        {
+            turnResetTime = Time.time + turnTime;
+        }
+        else
+        {
+            turnResetTime = Time.time + (turnTime * .5f);
+        }
         targetTurn = dir * turning;
-        turnResetTime = Time.time + turnTime;
     }
 
     void GearMove(bool player, int dir)
     {
-        if(dir == -1)
+        if (dir == 1)
         {
-            if(currGear >= 0)
-            {
-                currGear--;
-                
-            }
+            currSpeedTarget = maxForward;
         }
-        else if(dir == 1)
+        else
         {
-            if(currGear < maxGears)
-                currGear++;
+            currSpeedTarget = maxReverse;
         }
-        currSpeedTarget = currGear * speedPerGear;
     }
 
     // Update is called once per frame

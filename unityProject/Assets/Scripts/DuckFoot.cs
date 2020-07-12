@@ -16,7 +16,7 @@ public class DuckFoot : MonoBehaviour
 
     Vector3 newPosition;
 
-    bool isPlayerHoldingFoot;
+    public bool isPlayerHoldingFoot;
 
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -39,6 +39,8 @@ public class DuckFoot : MonoBehaviour
     float angle;
     public float angleSmoothing;
 
+    public bool canInteract = true;
+    public float coolDownTime = 1.25f;
     
 
     void Start()
@@ -145,5 +147,16 @@ public class DuckFoot : MonoBehaviour
         isPlayerHoldingFoot = false;
         PickNewPosition();
         Debug.Log("FootLetGo");
+    }
+
+    public void Interacted()
+    {
+        canInteract = false;
+        Invoke("AllowInteract", coolDownTime);
+    }
+
+    void AllowInteract()
+    {
+        canInteract = true;
     }
 }

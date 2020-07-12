@@ -19,4 +19,24 @@ public class CarArea : MonoBehaviour
             anim.SetTrigger(trigger);
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Foot"))
+        {
+            DuckFoot foot = other.GetComponent<DuckFoot>();
+            if(foot.isPlayerHoldingFoot)
+            {
+                CallInvoke(true);
+            }
+            else
+            {
+                if (foot.canInteract)
+                {
+                    CallInvoke(false);
+                    foot.Interacted();
+                }
+            }
+        }
+    }
+
 }
