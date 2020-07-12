@@ -25,6 +25,7 @@ public class CarArea : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Foot"))
         {
             DuckFoot foot = other.GetComponent<DuckFoot>();
+        
             if(foot.isPlayerHoldingFoot)
             {
                 CallInvoke(true);
@@ -37,6 +38,8 @@ public class CarArea : MonoBehaviour
                     foot.Interacted();
                 }
             }
+
+            //foot.FootUsed();
         }
     }
 

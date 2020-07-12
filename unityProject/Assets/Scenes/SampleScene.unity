@@ -2363,6 +2363,7 @@ MonoBehaviour:
   quack:
   - {fileID: 8300000, guid: a524e3c1356e4e84fb1d47b3f781de14, type: 3}
   - {fileID: 8300000, guid: 0e1d62fba8402fb47be3b5fcd4462b31, type: 3}
+  burnClip: {fileID: 8300000, guid: ae55c62434107054d8c697a99cff1855, type: 3}
   sfxSource: {fileID: 963194230}
 --- !u!82 &102069340
 AudioSource:
@@ -11254,50 +11255,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 614128490}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &614505763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 614505764}
-  - component: {fileID: 614505765}
-  m_Layer: 0
-  m_Name: OuchieZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &614505764
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614505763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4, y: -3.865, z: 6.15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1933289461}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &614505765
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614505763}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.79, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &622209324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35643,31 +35600,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1691861825}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1703711249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9156197740132740401, guid: e2570a0e40a4d2b48a0492eb6aea9b48,
-    type: 3}
-  m_PrefabInstance: {fileID: 983549988}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1703711252
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703711249}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6701c50964fb9404bb3af4663983eb50, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1706505776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4184555051287590290, guid: 3c6eeee534e5a0f4fab9cb0a60c5fb82,
@@ -41017,12 +40949,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2038944605036321305, guid: 0cad0e7470524fb449a5cedae8586b98,
     type: 3}
   m_PrefabInstance: {fileID: 1931884966}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1933289461 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3687158053079169787, guid: e2570a0e40a4d2b48a0492eb6aea9b48,
-    type: 3}
-  m_PrefabInstance: {fileID: 983549988}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1936372256
 PrefabInstance:

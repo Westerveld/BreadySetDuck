@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip duckQuackingGroup;
     public AudioClip[] quack;
 
+    public AudioClip burnClip;
+
     [SerializeField]
     AudioSource sfxSource;
 
@@ -32,16 +34,19 @@ public class AudioManager : MonoBehaviour
     {
         /*float pitch = Random.value;
         sfxSource.pitch = pitch;*/
+        sfxSource.pitch = 1f;
         sfxSource.PlayOneShot(quack[Random.Range(0, quack.Length)]);
     }
 
     public void PlayFeet()
     {
+        sfxSource.pitch = 1f;
         sfxSource.PlayOneShot(duckFeet);
     }
 
     public void PlayFoot()
     {
+        sfxSource.pitch = 1f;
         sfxSource.PlayOneShot(duckFootSlap);
     }
 
@@ -49,6 +54,13 @@ public class AudioManager : MonoBehaviour
     {
         /*float pitch = Random.value;
         sfxSource.pitch = pitch;*/
+        sfxSource.pitch = 1f;
         sfxSource.PlayOneShot(carHorn);
+    }
+
+    public void PlayBurn()
+    {
+        //sfxSource.pitch = Random.value;
+        sfxSource.PlayOneShot(burnClip);
     }
 }

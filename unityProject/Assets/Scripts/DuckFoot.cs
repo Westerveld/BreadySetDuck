@@ -111,7 +111,7 @@ public class DuckFoot : MonoBehaviour
         speed = Random.Range(minSpeed, maxSpeed);
         if(isBurnt)
         {
-            speed *= 2;
+            speed *= 5;
         }
 
         newPosition = new Vector3(newX, newY, cam.nearClipPlane + footOffset.z);
@@ -123,10 +123,10 @@ public class DuckFoot : MonoBehaviour
 
         if(isBurnt)
         {
-            waitForNewPosition *= .5f;
+            waitForNewPosition *= .1f;
         }
         AudioManager._instance.PlaySingleQuack();
-
+        CancelInvoke("PickNewPosition");
         Invoke("PickNewPosition", waitForNewPosition);
 
     }
@@ -138,6 +138,7 @@ public class DuckFoot : MonoBehaviour
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 
         isPlayerHoldingFoot = true;
+        StopBurn();
         Debug.Log("FootClicked");
         CancelInvoke("PickNewPosition");
         AudioManager._instance.PlaySingleQuack();
@@ -145,6 +146,9 @@ public class DuckFoot : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (!isPlayerHoldingFoot)
+            return;
+
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
@@ -157,6 +161,11 @@ public class DuckFoot : MonoBehaviour
         isPlayerHoldingFoot = false;
         PickNewPosition();
         Debug.Log("FootLetGo");
+    }
+
+    public void FootUsed()
+    {
+        isPlayerHoldingFoot = false;
     }
 
     public void Interacted()
@@ -172,9 +181,12 @@ public class DuckFoot : MonoBehaviour
 
     public void GotBurnt()
     {
-        isBurnt = true;
+        AudioManager._instance.PlayBurn();
         duckFootAnimator.SetTrigger("Burnt");
         Invoke("StopBurn", coolDownTime);
+        isBurnt = true;
+        CancelInvoke();
+        PickNewPosition();
     }
 
     void StopBurn()

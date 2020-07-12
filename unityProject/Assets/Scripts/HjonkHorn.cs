@@ -10,6 +10,7 @@ public class HjonkHorn : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Foot"))
         {
             other.GetComponent<DuckFoot>().Hjonk();
+            //other.GetComponent<DuckFoot>().FootUsed();
         }
     }
 }

@@ -8,6 +8,7 @@ public class Lighter : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Foot"))
         {
             other.GetComponent<DuckFoot>().GotBurnt();
+            other.GetComponent<DuckFoot>().FootUsed();
         }
     }
 }
