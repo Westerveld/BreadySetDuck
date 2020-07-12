@@ -20407,21 +20407,25 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 963194228, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04335788
+      value: 0.043357875
       objectReference: {fileID: 0}
     - target: {fileID: 963194228, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9990597
+      value: 0.9990596
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194230, guid: d85a1271a5ebec8418011c4af0666419, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5619424884463705907, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04335788
+      value: 0.043357875
       objectReference: {fileID: 0}
     - target: {fileID: 5619424884463705907, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9990597
+      value: 0.9990596
       objectReference: {fileID: 0}
     - target: {fileID: 7167471999416953612, guid: d85a1271a5ebec8418011c4af0666419,
         type: 3}
