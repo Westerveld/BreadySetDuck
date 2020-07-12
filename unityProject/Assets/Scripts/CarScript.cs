@@ -186,15 +186,8 @@ public class CarScript : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("GameOver");
-        timer += Time.deltaTime;
-        gameOverCanvas.alpha = timer / fadeDuration;
-
         PlayerPrefs.SetInt("Breads", currentBrebsCollected);
-        if(timer > fadeDuration + 2)
-        {
-            SceneManager.LoadScene(0);
-        }
+        SceneManager.LoadScene(2);
     }
 
     public void GetBreb()
