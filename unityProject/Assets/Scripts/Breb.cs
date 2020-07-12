@@ -19,6 +19,7 @@ public class Breb : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Car"))
         {
             other.gameObject.GetComponentInParent<CarScript>().GetBreb();
+            AudioManager._instance.EatBreb();
             Destroy(this.gameObject);
         }
     }

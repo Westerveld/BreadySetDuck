@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip burnClip;
 
+    public AudioClip[] eatBreb;
+
     [SerializeField]
     AudioSource sfxSource;
 
@@ -55,5 +57,10 @@ public class AudioManager : MonoBehaviour
     {
         //sfxSource.pitch = Random.value;
         sfxSource.PlayOneShot(burnClip);
+    }
+
+    public void EatBreb()
+    {
+        sfxSource.PlayOneShot(eatBreb[Random.Range(0, eatBreb.Length)]);
     }
 }
