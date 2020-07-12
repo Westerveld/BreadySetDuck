@@ -4,7 +4,7 @@ Shader "Unlit/outline_unlit"
 {
 	Properties{
 		_MainTex("Base (RGB)", 2D) = "white" {}
-		_Outline("Outline Thickness", Range(0.0, 0.3)) = 0.002
+		_Outline("Outline Thickness", Range(0.0, 1)) = 0.002
 		_OutlineColor("Outline Color", Color) = (0,0,0,1)
 	}
 

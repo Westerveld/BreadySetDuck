@@ -86,6 +86,7 @@ public class CarScript : MonoBehaviour
     void Update()
     {
         speed = Mathf.Lerp(speed, currSpeedTarget, Time.deltaTime * acceleration);
+        
         movement = transform.forward * constantForwardForce;
         BL.motorTorque = speed;
         BR.motorTorque = speed;

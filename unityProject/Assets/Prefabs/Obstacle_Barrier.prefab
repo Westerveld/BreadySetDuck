@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4349451297496889213}
   - component: {fileID: 1997537340821144503}
   - component: {fileID: 3547487210241297085}
+  - component: {fileID: 760005701355139403}
   m_Layer: 0
   m_Name: Obstacle_Barrier
   m_TagString: Untagged
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0252242, y: 0.7615093, z: 1.4034759}
   m_Center: {x: -0.6912219, y: 0.38075465, z: 0.70173794}
+--- !u!54 &760005701355139403
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51881353797870178}
+  serializedVersion: 2
+  m_Mass: 30
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2

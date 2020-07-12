@@ -203,6 +203,8 @@ MonoBehaviour:
   footOffset: {x: 0, y: 0, z: 0.5}
   fVector: {x: 0, y: 0, z: 0}
   angleSmoothing: 2
+  canInteract: 1
+  coolDownTime: 5
 --- !u!65 &5591195469392237941
 BoxCollider:
   m_ObjectHideFlags: 0
