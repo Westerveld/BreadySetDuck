@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1693607743}
   - component: {fileID: 1693607744}
+  - component: {fileID: 1572149254117320745}
   m_Layer: 9
-  m_Name: CarCollectionZone
+  m_Name: CarDetectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +45,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.010563, y: 1.7645478, z: 1.1304474}
   m_Center: {x: -0.016616344, y: 0.19939637, z: 1.6287539}
+--- !u!114 &1572149254117320745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693607742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9aa2f63968bc648bff6c358bbd3334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carParent: {fileID: 7167471999416953613}
 --- !u!1 &1528094637740077737
 GameObject:
   m_ObjectHideFlags: 0
@@ -10626,7 +10640,8 @@ MonoBehaviour:
   maxForward: 2500
   maxHealth: 0
   currentHealth: 0
-  smokeParticle: {fileID: 0}
+  smokeParticle:
+  - {fileID: 0}
 --- !u!65 &7167471999416953614
 BoxCollider:
   m_ObjectHideFlags: 0
